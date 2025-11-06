@@ -18,7 +18,9 @@
         <div class="logo-div">
             <img src="images/logo.png" alt="site logo" width="170" height="auto">
             <span id="course-title">Confiance Hategekimana Ibovi</span>
-            <button id="nav-button" class="hamburger" aria-label="navigation"></button>
+            <button id="hambtn" class="hamburger" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle menu">
+                &#9776;
+            </button>
         </div>
         <nav>
             <ul id="navigation-links">
@@ -48,8 +50,24 @@
                 <img src="images/me.webp" alt="student photo" width="300" height="400">
             </section>
         </span>
+
+        <p class="p1">web certificates courses.</p>
+
+        <div class="menu" id="main-menu" role="menubar">
+            <a href="#" role="menuitem" data-filter="all" class="active">All Courses</a>
+            <a href="#" role="menuitem" data-filter="cse">CSE Courses</a>
+            <a href="#" role="menuitem" data-filter="wdd">WDD Courses</a>
+        </div>
+
+        <p class="p2">The total number of the course listed below is <span class="span_nub"></span></p>
+
+        <section id="course-container" class="course-grid" aria-live="polite">
+        </section>
+  </main>
        
-    </main>
-    <footer></footer>
+    <footer>
+        <p id="p1">©<span id="currentyear"></span> Confiance 🌍 République du Congo</p>
+        <p id="lastModified"></p>
+    </footer>
 </body>
 </html>

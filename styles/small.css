@@ -190,9 +190,9 @@ p{
 }
 
 .filter-a.active {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: white;
-    border-color: var(--secondary-color);
+    border-color: var(--text-color);
 }
 
 .courses-container {
@@ -234,13 +234,13 @@ p{
 }
 
 .course-title {
-    font-weight: 500;
+    font-weight: 1000;
     margin-bottom: 0.5rem;
 }
 
 .course-description {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--text-color);
     margin-bottom: 0.5rem;
 }
 

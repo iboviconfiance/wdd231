@@ -1,3 +1,4 @@
+// Tableau des cours
 const courses = [
     {
         subject: 'CSE',
@@ -9,7 +10,7 @@ const courses = [
         technology: [
             'Python'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'WDD',
@@ -22,7 +23,7 @@ const courses = [
             'HTML',
             'CSS'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'CSE',
@@ -46,7 +47,7 @@ const courses = [
         technology: [
             'C#'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'WDD',
@@ -60,7 +61,7 @@ const courses = [
             'CSS',
             'JavaScript'
         ],
-        completed: false
+        completed: true  // Modifier selon vos besoins
     },
     {
         subject: 'WDD',
@@ -74,115 +75,77 @@ const courses = [
             'CSS',
             'JavaScript'
         ],
-        completed: false
+        completed: false  
     }
-]
-
-const container = document.getElementById('course-container');
-const menu = document.getElementById('main-menu');
-const span_nub =document.querySelector('.span_nub');
+];
 
 
-function getCourse(coursestr){
-    const y=coursestr;
-    return y;
+let filteredCourses = [...courses];
+
+// Fonction pour afficher les cours
+function displayCourses(coursesToDisplay) {
+    const container = document.querySelector('.courses-container');
+    container.innerHTML = '';
+    
+    coursesToDisplay.forEach(course => {
+        const courseCard = document.createElement('div');
+        courseCard.className = `course-card ${course.completed ? 'completed' : ''}`;
+        
+        courseCard.innerHTML = `
+            <div class="course-header">
+                <div class="course-code">${course.subject} ${course.number}</div>
+                <div class="course-credits">${course.credits} crédits</div>
+            </div>
+            <div class="course-title">${course.title}</div>
+            <div class="course-description">${course.description}</div>
+            <div class="course-tech">
+                ${course.technology.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+            </div>
+        `;
+        
+        container.appendChild(courseCard);
+    });
+    
+    // Mettre à jour le total des crédits
+    updateTotalCredits(coursesToDisplay);
 }
 
-function flitercomplet(x){
-  let filteredd = courses.slice();
-
+// Fonction pour mettre à jour le total des crédits
+function updateTotalCredits(coursesToDisplay) {
+    const totalCredits = coursesToDisplay.reduce((total, course) => total + course.credits, 0);
+    document.getElementById('total-credits').textContent = totalCredits;
 }
 
-
-
-function displayCourse(list) {
-  container.innerHTML = ''; //clear
-
-  if (!list || list.length === 0) {
-    container.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:#555; padding:1rem;">No courses finding for this filter.</p>`;
-    span_nub.textContent = 0;
-    return;
-  }
-  span_nub.textContent = list.length;
-  list.forEach(course => {
-    const div_sect = document.createElement('div');
-    div_sect.className = 'course_card';
-    div_sect.innerHTML = `<strong>${course.subject}</strong> ${course.number}`;
-
-
-    container.appendChild(div_sect);
-  });
-}
-
-function filterCourse(criteria) {
-  let filtered = courses.slice(); //copy
-
-  switch (criteria) {
-    case 'cse':
-      filtered = filtered.filter(t => {
-        const coursess = getCourse(t.subject);
-        return coursess !== null && coursess=='CSE';
-      });
-      break;
-
-    case 'wdd':
-      filtered = filtered.filter(t => {
-        const coursess = getCourse(t.subject);
-        return coursess !== null && coursess=='WDD';
-      });
-      break;
-
-    case 'all':
-    default:
-      filtered = courses.slice(); 
-      break;
-  }
-  displayCourse(filtered);
-
-}
-
-function onMenuClick(e) {
-  if (!e.target.matches('[data-filter]')) return;
-  e.preventDefault();
-
-  const filter = e.target.getAttribute('data-filter');
-
-  // update active link style
-  menu.querySelectorAll('a').forEach(a => a.classList.remove('active'));
-  e.target.classList.add('active');
-
-  // close mobile menu if open
-  if (menu.classList.contains('open')) toggleMobileMenu();
-
-
-  filterCourse(filter);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  // initial render: all courses
-  displayCourse(courses);
-
-  // event delegation for menu
-  menu.addEventListener('click', onMenuClick);
-
-  // hamburger for mobile
-  hamburger.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleMobileMenu();
-  });
-
-  // click outside to close mobile menu
-  document.addEventListener('click', (evt) => {
-    if (!menu.contains(evt.target) && menu.classList.contains('open')) {
-      toggleMobileMenu();
+// Fonction pour filtrer les cours
+function filterCourses(filter) {
+    if (filter === 'all') {
+        filteredCourses = [...courses];
+    } else {
+        filteredCourses = courses.filter(course => course.subject === filter);
     }
-  });
+    
+    displayCourses(filteredCourses);
+}
 
-  // keyboard accessibility: close menu on Escape
-  document.addEventListener('keydown', (ev) => {
-    if (ev.key === 'Escape' && menu.classList.contains('open')) {
-      toggleMobileMenu();
-    }
-  });
-
+// Initialisation
+document.addEventListener('DOMContentLoaded', function() {
+    // Afficher tous les cours au chargement
+    displayCourses(courses);
+    
+    // Gestion des boutons de filtre
+    const filterButtons = document.querySelectorAll('.filter-a');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Retirer la classe active de tous les boutons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Ajouter la classe active au bouton cliqué
+            this.classList.add('active');
+            
+            // Filtrer les cours
+            const filter = this.getAttribute('data-filter');
+            filterCourses(filter);
+        });
+    });
 });

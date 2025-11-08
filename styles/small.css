@@ -35,6 +35,12 @@ body {
     font-size: 1.5rem;
 }
 
+.logo{
+    height: auto;
+    width: 170px;
+    margin-left: 20px;
+}
+
 #course-title{
     margin-right: 37%;
 }

@@ -17,13 +17,8 @@
     padding: 1rem 1.5rem;
   }
 
-  .hamburger {
+  #hambtn {
     display: none;
-    /* background: transparent;
-    border: none;
-    color: #ccc;
-    font-size: 1.6rem;
-    cursor: pointer; */
   }
 
   .cards-container {

@@ -51,7 +51,7 @@
     margin: 0 auto;
 }
 
-.hero h1 {
+.hero h2 {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -149,7 +149,7 @@
         min-height: 400px;
     }
     
-    .hero h1 {
+    .hero h2 {
         font-size: 2.2rem;
     }
     
@@ -181,7 +181,7 @@
         height: 70vh;
     }
     
-    .hero h1 {
+    .hero h2 {
         font-size: 1.8rem;
     }
     

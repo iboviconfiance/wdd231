@@ -1,0 +1,498 @@
+/* CSS Variables for colors and fonts */
+:root {
+    --primary-color: #123456;
+    --secondary-color: #3498db;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --accent-color: #e74c3c;
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+    --font-other: 'Playfair Display', serif;
+}
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-other);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Header */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+.logo h1 {
+    font-size: 1.2rem;
+    font-family: var(--font-other);
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Navigation - Only 4 links as per wireframe */
+.navigation {
+    display: none;
+    margin-top: 1rem;
+}
+
+.navigation.active {
+    display: block;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 100px;
+
+}
+
+.navigation li {
+    margin-bottom: 0;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.navigation a.active {
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+}
+
+/* Main content */
+main {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.weather-card {
+    flex-direction: column;
+    text-align: center;
+}
+    
+.weather-details {
+    grid-template-columns: 1fr;
+}
+    
+.forecast-container {
+    grid-template-columns: 1fr;
+}
+
+/* View controls */
+.view-controls {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.view-controls button {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary-color);
+    background-color: white;
+    color: var(--primary-color);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.view-controls button.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.view-controls button:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+/* Members container */
+#members-container {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* Grid view */
+.grid-view {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.grid-view .member-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-view .member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.grid-view .member-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    border: 3px solid var(--secondary-color);
+}
+
+.grid-view .member-name {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.grid-view .member-address,
+.grid-view .member-phone {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.grid-view .member-website a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.grid-view .member-website a:hover {
+    text-decoration: underline;
+}
+
+.grid-view .member-level {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+/* List view */
+.list-view {
+    grid-template-columns: 1fr;
+}
+
+.list-view .member-card {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.list-view .member-card:hover {
+    background-color: #f5f5f5;
+}
+
+.list-view .member-image {
+    display: none;
+}
+
+.list-view .member-info {
+    flex-grow: 1;
+}
+
+.list-view .member-name {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.list-view .member-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.list-view .member-address,
+.list-view .member-phone,
+.list-view .member-website {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.list-view .member-website a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.list-view .member-website a:hover {
+    text-decoration: underline;
+}
+
+.list-view .member-level {
+    padding: 0.3rem 0.8rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-info,
+.project-info {
+    margin-bottom: 1rem;
+}
+
+.contact-info h3 {
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.project-info p {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+
+/* Media queries for desktop */
+@media (min-width: 768px) {
+
+    header {
+        display: flex;
+        flex-direction: row;
+    }
+    .header-top {
+        display: flex;
+        flex: 2;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .menu-toggle {
+        display: none;
+    }
+    
+    .navigation {
+        display: block;
+        margin-top: 0;
+    }
+    
+    .navigation ul {
+        flex: 1;
+        flex-direction: row;
+        gap: 2rem;
+    }
+    
+    .navigation a {
+        padding: 0.5rem 1rem;
+    }
+
+
+    .weather-section {
+        background: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+    }
+
+    .weather-section h2 {
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 0.5rem;
+    }
+
+    .weather-section h3 {
+        color: #34495e;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+/* Current Weather */
+    .current-weather {
+        margin-bottom: 2rem;
+    }
+
+    .weather-card {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        background: linear-gradient(135deg, #74b9ff, #0984e3);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(116, 185, 255, 0.3);
+    }
+
+    .weather-icon img {
+        width: 80px;
+        height: 80px;
+        filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+    }
+
+    .weather-info {
+        flex: 1;
+    }
+
+    .temperature {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .condition {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+    }
+
+    .weather-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+
+    .detail-item {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+
+    .detail-item span:first-child {
+        font-weight: 600;
+    }
+
+    /* Weather Forecast */
+    .weather-forecast {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 10px;
+        border: 1px solid #e9ecef;
+    }
+
+    .forecast-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+
+    .forecast-day {
+        text-align: center;
+        padding: 1rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease;
+    }
+
+    .forecast-day:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    .day-name {
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .forecast-temp {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #e74c3c;
+    }
+
+    /* Loading State */
+    .weather-loading {
+        opacity: 0.7;
+    }
+    
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+    }
+    
+    .contact-info,
+    .project-info {
+        margin-bottom: 0;
+    }
+    
+    h2 {
+        text-align: left;
+    }
+    
+    .view-controls {
+        justify-content: flex-start;
+    }
+}

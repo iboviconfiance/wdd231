@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Congo Telecom",
+        "address": " 67, Boulevard Denis Sassou N'guesso, Centre ville, Brazzaville",
+        "phone": "2222",
+        "website": "https://congotelecom.cg",
+        "image": "images/congo-telecom.webp",
+        "level": 3,
+        "description": "Main national telecommunications operator"
+    },
+    {
+        "name": "SNPC (National Petroleum Company of Congo)",
+        "address": "Boulevard Denis Sassou Nguesso, Brazzaville",
+        "phone": "+242 06 555 2100",
+        "website": "https://www.snpc-group.com/",
+        "image": "images/siege_snpc_2.jpg",
+        "level": 3,
+        "description": "National petroleum company"
+    },
+    {
+        "name": "BGFI Bank Brazzaville",
+        "address": "Boulevard Denis Sassou Nguesso, Brazzaville",
+        "phone": "+242 06 632 6505",
+        "website": "https://groupebgfibank.com",
+        "image": "images/BGFI.jpg",
+        "level": 3,
+        "description": "Leading commercial bank in Central Africa"
+    },
+    {
+        "name": "Mikhael's Hotel",
+        "address": "Nelson Mandela Av. 65, Brazzaville",
+        "phone": "+242 06 466 6600",
+        "website": "http://mikhaelshotel.com",
+        "image": "images/michael_hotel.jpg",
+        "level": 2,
+        "description": "4-star hotel with conference facilities and spa"
+    },
+    {
+        "name": "Hilton Brazzaville The Twin Towers Hotel & Residences",
+        "address": "Les Tours Jumelles, Rue Moundzeli, Brazzaville ",
+        "phone": "+242 06 783 0000",
+        "website": "https://www.hilton.com/en/hotels/bzvjmhi-hilton-brazzaville-les-tours-jumelles-hotel-and-residences/?SEO_id=BING-EMEA-HI-BZVJMHI",
+        "image": "images/Hilton.webp",
+        "level": 2,
+        "description": "5-star hotel with conference facilities and spa"
+    }
+]

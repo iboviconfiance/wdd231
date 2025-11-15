@@ -104,9 +104,10 @@ nav{
     display: block;
     height: 3px;
     width: 100%;
-    background-color: white;
+    background-color: var(--light-bg);
     border-radius: 3px;
     transition: all 0.3s;
+    font-weight: 1400;
 }
 
 
@@ -191,7 +192,7 @@ p{
 
 .filter-a.active {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--light-bg);
     border-color: var(--text-color);
 }
 
@@ -206,7 +207,7 @@ p{
     border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 1rem;
-    background-color: white;
+    background-color: var(--light-bg);
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
@@ -253,7 +254,7 @@ p{
 
 .tech-tag {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--light-bg);
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
     font-size: 0.8rem;
@@ -275,7 +276,7 @@ p{
 
 footer {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--light-bg);
   text-align: center;
   padding: 1rem;
   margin-top: 2rem;
@@ -289,7 +290,7 @@ footer {
 }
 
 .social-links a {
-    color: white;
+    color: var(--light-bg);
     transition: color 0.3s;
 }
 

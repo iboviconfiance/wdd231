@@ -18,6 +18,15 @@
         "description": "National petroleum company"
     },
     {
+        "name": "Air Congo",
+        "address": "Maya-Maya Airport, Brazzaville",
+        "phone": "+242 05 556 0202",
+        "website": "https://www.aircongo.cg",
+        "image": "images/air-congo.jpg",
+        "level": 3,
+        "description": "National airline company"
+    },
+    {
         "name": "BGFI Bank Brazzaville",
         "address": "Boulevard Denis Sassou Nguesso, Brazzaville",
         "phone": "+242 06 632 6505",
@@ -43,5 +52,41 @@
         "image": "images/Hilton.webp",
         "level": 2,
         "description": "5-star hotel with conference facilities and spa"
+    },
+    {
+        "name": "Brazzaville Beach Hotel",
+        "address": "Boulevard du Colonel Brisset, Brazzaville",
+        "phone": "+242 05 556 0707",
+        "website": "https://www.brazzavillebeach.cg",
+        "image": "images/beach-hotel.jpg",
+        "level": 2,
+        "description": "Hotel complex facing the Congo River"
+    },
+    {
+        "name": "Congo Airways",
+        "address": "Maya-Maya Airport, Brazzaville",
+        "phone": "+242 05 556 0808",
+        "website": "https://www.congoairways.com",
+        "image": "images/congo-airways.jpg",
+        "level": 2,
+        "description": "Regional airline company"
+    },
+    {
+        "name": "Ecobank Congo",
+        "address": "Avenue du General de Gaulle, Brazzaville",
+        "phone": "+242 05 556 0909",
+        "website": "https://www.ecobank.com/cg",
+        "image": "images/ecobank.jpg",
+        "level": 3,
+        "description": "Pan-African banking group"
+    },
+    {
+        "name": "Central Pharmacy",
+        "address": "Rue Kimbangu, Poto-Poto, Brazzaville",
+        "phone": "+242 05 556 1010",
+        "website": "https://www.pharmaciecentrale.cg",
+        "image": "images/central-pharmacy.jpg",
+        "level": 1,
+        "description": "Reference pharmacy since 1960"
     }
 ]

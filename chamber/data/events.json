@@ -1,0 +1,64 @@
+{
+    "events": [
+        {
+            "id": 1,
+            "title": "Business Networking Mixer",
+            "description": "Connect with local entrepreneurs and business leaders in a relaxed setting. Perfect for expanding your professional network and discovering new opportunities.",
+            "date": "2024-11-15",
+            "time": "18:00",
+            "endTime": "20:00",
+            "location": "Chamber Conference Hall",
+            "image": "images/events/networking.jpg",
+            "category": "Networking",
+            "price": "Free",
+            "spotsAvailable": 45,
+            "registrationLink": "#",
+            "featured": true
+        },
+        {
+            "id": 2,
+            "title": "Digital Marketing Workshop",
+            "description": "Learn cutting-edge strategies to grow your business online with our expert digital marketing trainers. Hands-on sessions included.",
+            "date": "2024-11-22",
+            "time": "09:00",
+            "endTime": "12:00",
+            "location": "Innovation Center",
+            "image": "images/events/digital-marketing.jpg",
+            "category": "Workshop",
+            "price": "$50",
+            "spotsAvailable": 30,
+            "registrationLink": "#",
+            "featured": false
+        },
+        {
+            "id": 3,
+            "title": "Annual Business Awards",
+            "description": "Celebrating excellence and outstanding achievement in our vibrant business community. Black tie event with dinner and entertainment.",
+            "date": "2024-12-05",
+            "time": "19:00",
+            "endTime": "22:00",
+            "location": "Grand Hotel Ballroom",
+            "image": "images/events/awards.jpg",
+            "category": "Awards",
+            "price": "$100",
+            "spotsAvailable": 200,
+            "registrationLink": "#",
+            "featured": true
+        },
+        {
+            "id": 4,
+            "title": "Startup Pitch Competition",
+            "description": "Watch innovative startups pitch their ideas to a panel of investors and industry experts. Great networking opportunity.",
+            "date": "2024-11-28",
+            "time": "14:00",
+            "endTime": "17:00",
+            "location": "Tech Hub Auditorium",
+            "image": "images/events/pitch.jpg",
+            "category": "Competition",
+            "price": "Free",
+            "spotsAvailable": 80,
+            "registrationLink": "#",
+            "featured": false
+        }
+    ]
+}

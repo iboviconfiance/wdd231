@@ -10,7 +10,7 @@
     --font-other: 'Playfair Display', serif;
 }
 
-/* Reset and base styles */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -63,7 +63,7 @@ header {
     cursor: pointer;
 }
 
-/* Navigation - Only 4 links as per wireframe */
+
 .navigation {
     display: none;
     margin-top: 1rem;
@@ -118,7 +118,7 @@ header {
         inset 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* Main content */
+
 main {
     padding: 1rem;
     max-width: 1200px;
@@ -132,8 +132,6 @@ h2 {
 }
 
 
-
-/* View controls */
 .view-controls {
     margin-bottom: 1rem;
     display: flex;
@@ -162,13 +160,13 @@ h2 {
     border-color: var(--secondary-color);
 }
 
-/* Members container */
+
 #members-container {
     display: grid;
     gap: 1.5rem;
 }
 
-/* Grid view */
+
 .grid-view {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
@@ -231,7 +229,7 @@ h2 {
     font-weight: bold;
 }
 
-/* List view */
+
 .list-view {
     grid-template-columns: 1fr;
 }

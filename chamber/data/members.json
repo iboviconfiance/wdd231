@@ -18,13 +18,13 @@
         "description": "National petroleum company"
     },
     {
-        "name": "Air Congo",
-        "address": "Maya-Maya Airport, Brazzaville",
-        "phone": "+242 05 556 0202",
-        "website": "https://www.aircongo.cg",
-        "image": "images/air-congo.jpg",
+        "name": "BSCABank",
+        "address": "Immeuble BSCA.Bank, Brazzaville, Congo - Brazzaville",
+        "phone": "+242 06 700 0500",
+        "website": "ebank.bscabank.com",
+        "image": "images/bsca.webp",
         "level": 3,
-        "description": "National airline company"
+        "description": "China bank company"
     },
     {
         "name": "BGFI Bank Brazzaville",

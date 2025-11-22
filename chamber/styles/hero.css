@@ -96,14 +96,14 @@
 }
 
 .btn-primary {
-    background: #e74c3c;
+    background: red;
     color: white;
-    border-color: #e74c3c;
+    border-color: red;
 }
 
 .btn-primary:hover {
-    background: #c0392b;
-    border-color: #c0392b;
+    background: red;
+    border-color: redr;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
 }

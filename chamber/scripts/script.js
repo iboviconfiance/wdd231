@@ -1,7 +1,5 @@
-// Member data (will be replaced by JSON fetch)
 const members = [];
 
-// Function to display members
 function displayMembers(viewType) {
     const container = document.getElementById('members-container');
     container.innerHTML = '';
@@ -69,18 +67,19 @@ async function fetchMembers() {
 
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', function() {
-    // Update copyright
+    
+
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
     
-    // Update last modified date
     document.getElementById('last-modified').textContent = document.lastModified;
     
-    // Mobile menu handling
     const menuToggle = document.querySelector('.menu-toggle');
     const navigation = document.querySelector('.navigation');
+    const footers= document.querySelector('footer');
     
     menuToggle.addEventListener('click', function() {
         navigation.classList.toggle('active');
+        footers.classList.toggle('active');
     });
     
     // View buttons handling

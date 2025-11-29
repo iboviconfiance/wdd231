@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join the Brazzaville Chamber of Commerce - Become a member and grow your business">
+    <meta name="author" content="Confiance Hategekimana Ibovi">
+    
+    <!-- Facebook Meta Tags -->
+    <meta property="og:title" content="Join Us - Brazzaville Chamber of Commerce">
+    <meta property="og:description" content="Become a member and access exclusive business benefits and networking opportunities">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:url" content="https://yoursite.com/join.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Brazzaville Chamber of Commerce">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:url" content="https://yoursite.com/join.html">
+    <meta name="twitter:title" content="Join Us - Brazzaville Chamber of Commerce">
+    <meta name="twitter:description" content="Become a member and access exclusive business benefits">
+    <meta name="twitter:card" content="summary">
+    
+    <title>Join Us | Brazzaville Chamber of Commerce</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon1.png" type="image/png">
+    
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/join.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <script src="scripts/join.js" defer></script>
+    <script src="scripts/script.js" defer></script>
+    
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <img src="images/logo2.png" alt="Chamber of Commerce Logo"/>
+                <h1>chamber of commerce, industry,<br> agriculture and trades</h1>
+            </div>
+            <button class="menu-toggle" aria-label="Open menu">☰</button>
+        </div>
+        
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html" class="active">Join</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="join-page">
+        <!-- Hero Section -->
+        <section class="join-hero">
+            <div class="hero-content">
+                <h1>Join Our Chamber of Commerce</h1>
+                <p class="hero-subtitle">Grow your business with exclusive benefits, networking opportunities, and community support</p>
+            </div>
+        </section>
+
+        <div class="join-container">
+            <!-- Membership Form -->
+            <section class="membership-form-section">
+                <h2>Membership Application</h2>
+                <form id="membership-form" method="get" action="thankyou.html" class="membership-form">
+                    <!-- Personal Information -->
+                    <fieldset>
+                        <legend>Personal Information</legend>
+                        
+                        <label>
+                            First Name *
+                            <input type="text" name="firstName" required 
+                                   autocomplete="given-name" 
+                                   title="Please enter your first name">
+                        </label>
+                        
+                        <label>
+                            Last Name *
+                            <input type="text" name="lastName" required 
+                                   autocomplete="family-name" 
+                                   title="Please enter your last name">
+                        </label>
+                        
+                        <label>
+                            Job Title
+                            <input type="text" name="jobTitle" 
+                                   autocomplete="organization-title"
+                                   pattern="[A-Za-z\s\-]{7,}"
+                                   title="Please enter your job title (minimum 7 characters, only letters, spaces, and hyphens)">
+                        </label>
+                    </fieldset>
+
+                    <!-- Contact Information -->
+                    <fieldset>
+                        <legend>Contact Information</legend>
+                        
+                        <label>
+                            Email Address *
+                            <input type="email" name="email" required 
+                                   autocomplete="email"
+                                   placeholder="example@email.com"
+                                   title="Please enter a valid email address">
+                        </label>
+                        
+                        <label>
+                            Mobile Phone *
+                            <input type="tel" name="phone" required 
+                                   autocomplete="tel"
+                                   title="Please enter your mobile phone number">
+                        </label>
+                    </fieldset>
+
+                    <!-- Business Information -->
+                    <fieldset>
+                        <legend>Business Information</legend>
+                        
+                        <label>
+                            Business/Organization Name *
+                            <input type="text" name="businessName" required 
+                                   autocomplete="organization"
+                                   title="Please enter your business or organization name">
+                        </label>
+                        
+                        <label>
+                            Membership Level *
+                            <select name="membershipLevel" required title="Please select a membership level">
+                                <option value="">Select a membership level</option>
+                                <option value="np">NP Membership (Non-Profit) - Free</option>
+                                <option value="bronze">Bronze Membership - $100/year</option>
+                                <option value="silver">Silver Membership - $250/year</option>
+                                <option value="gold">Gold Membership - $500/year</option>
+                            </select>
+                        </label>
+                        
+                        <label>
+                            Business Description
+                            <textarea name="businessDescription" 
+                                      title="Tell us about your business or organization"
+                                      rows="4"></textarea>
+                        </label>
+                    </fieldset>
+
+                    <!-- Hidden Timestamp -->
+                    <input type="hidden" name="timestamp" id="timestamp">
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary btn-submit">Submit Application</button>
+                </form>
+            </section>
+
+            <!-- Membership Cards -->
+            <section class="membership-cards-section">
+                <h2>Membership Levels</h2>
+                <div class="membership-cards">
+                    <!-- NP Membership Card -->
+                    <div class="membership-card np-membership">
+                        <div class="card-header">
+                            <h3>NP Membership</h3>
+                            <div class="price">Free</div>
+                        </div>
+                        <div class="card-body">
+                            <p>For non-profit organizations</p>
+                            <ul>
+                                <li>Business listing in directory</li>
+                                <li>Basic event access</li>
+                                <li>Monthly newsletter</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn-benefits" data-modal="np-modal">View Benefits</button>
+                        </div>
+                    </div>
+
+                    <!-- Bronze Membership Card -->
+                    <div class="membership-card bronze-membership">
+                        <div class="card-header">
+                            <h3>Bronze Membership</h3>
+                            <div class="price">$100/year</div>
+                        </div>
+                        <div class="card-body">
+                            <p>Perfect for small businesses</p>
+                            <ul>
+                                <li>All NP benefits</li>
+                                <li>Enhanced directory listing</li>
+                                <li>Event discounts</li>
+                                <li>Training workshops</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn-benefits" data-modal="bronze-modal">View Benefits</button>
+                        </div>
+                    </div>
+
+                    <!-- Silver Membership Card -->
+                    <div class="membership-card silver-membership">
+                        <div class="card-header">
+                            <h3>Silver Membership</h3>
+                            <div class="price">$250/year</div>
+                        </div>
+                        <div class="card-body">
+                            <p>For growing businesses</p>
+                            <ul>
+                                <li>All Bronze benefits</li>
+                                <li>Featured directory listing</li>
+                                <li>Premium event access</li>
+                                <li>Advertising opportunities</li>
+                                <li>Networking events</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn-benefits" data-modal="silver-modal">View Benefits</button>
+                        </div>
+                    </div>
+
+                    <!-- Gold Membership Card -->
+                    <div class="membership-card gold-membership">
+                        <div class="card-header">
+                            <h3>Gold Membership</h3>
+                            <div class="price">$500/year</div>
+                        </div>
+                        <div class="card-body">
+                            <p>Maximum visibility and benefits</p>
+                            <ul>
+                                <li>All Silver benefits</li>
+                                <li>Homepage spotlight</li>
+                                <li>VIP event access</li>
+                                <li>Priority advertising</li>
+                                <li>Executive networking</li>
+                                <li>Sponsorship opportunities</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn-benefits" data-modal="gold-modal">View Benefits</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Membership Modals -->
+    <!-- NP Membership Modal -->
+    <div id="np-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>NP Membership Benefits</h2>
+            <div class="modal-body">
+                <div class="benefits-list">
+                    <h3>Included Benefits:</h3>
+                    <ul>
+                        <li>✅ Basic business listing in our online directory</li>
+                        <li>✅ Access to monthly networking events</li>
+                        <li>✅ Subscription to our monthly newsletter</li>
+                        <li>✅ Member pricing on chamber publications</li>
+                        <li>✅ Use of chamber logo for marketing</li>
+                        <li>✅ Business referral program access</li>
+                    </ul>
+                    
+                    <h3>Perfect For:</h3>
+                    <ul>
+                        <li>Non-profit organizations</li>
+                        <li>Community service groups</li>
+                        <li>Educational institutions</li>
+                        <li>Startup non-profits</li>
+                    </ul>
+                    
+                    <div class="modal-footer">
+                        <p><strong>Cost: Free</strong></p>
+                        <button class="btn btn-primary select-membership" data-level="np">Select NP Membership</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bronze Membership Modal -->
+    <div id="bronze-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Bronze Membership Benefits</h2>
+            <div class="modal-body">
+                <div class="benefits-list">
+                    <h3>All NP Benefits Plus:</h3>
+                    <ul>
+                        <li>✅ Enhanced directory listing with logo</li>
+                        <li>✅ 10% discount on all chamber events</li>
+                        <li>✅ Access to business training workshops</li>
+                        <li>✅ Monthly business spotlight opportunities</li>
+                        <li>✅ Social media mentions</li>
+                        <li>✅ Business consultation sessions</li>
+                    </ul>
+                    
+                    <h3>Perfect For:</h3>
+                    <ul>
+                        <li>Small businesses</li>
+                        <li>Local retailers</li>
+                        <li>Freelancers</li>
+                        <li>Service providers</li>
+                    </ul>
+                    
+                    <div class="modal-footer">
+                        <p><strong>Cost: $100 per year</strong></p>
+                        <button class="btn btn-primary select-membership" data-level="bronze">Select Bronze Membership</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Silver Membership Modal -->
+    <div id="silver-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Silver Membership Benefits</h2>
+            <div class="modal-body">
+                <div class="benefits-list">
+                    <h3>All Bronze Benefits Plus:</h3>
+                    <ul>
+                        <li>✅ Featured placement in directory</li>
+                        <li>✅ 25% discount on chamber events</li>
+                        <li>✅ Priority advertising opportunities</li>
+                        <li>✅ Exclusive networking events</li>
+                        <li>✅ Business development workshops</li>
+                        <li>✅ Monthly newsletter feature</li>
+                        <li>✅ Legislative updates</li>
+                    </ul>
+                    
+                    <h3>Perfect For:</h3>
+                    <ul>
+                        <li>Growing businesses</li>
+                        <li>Medium-sized companies</li>
+                        <li>Professional services</li>
+                        <li>Regional businesses</li>
+                    </ul>
+                    
+                    <div class="modal-footer">
+                        <p><strong>Cost: $250 per year</strong></p>
+                        <button class="btn btn-primary select-membership" data-level="silver">Select Silver Membership</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gold Membership Modal -->
+    <div id="gold-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Gold Membership Benefits</h2>
+            <div class="modal-body">
+                <div class="benefits-list">
+                    <h3>All Silver Benefits Plus:</h3>
+                    <ul>
+                        <li>✅ Homepage spotlight rotation</li>
+                        <li>✅ VIP access to all events</li>
+                        <li>✅ Priority sponsorship opportunities</li>
+                        <li>✅ Executive networking sessions</li>
+                        <li>✅ Featured in annual business guide</li>
+                        <li>✅ Media exposure opportunities</li>
+                        <li>✅ Board committee participation</li>
+                        <li>✅ 50% discount on event booth space</li>
+                    </ul>
+                    
+                    <h3>Perfect For:</h3>
+                    <ul>
+                        <li>Large corporations</li>
+                        <li>Industry leaders</li>
+                        <li>Major employers</li>
+                        <li>Regional headquarters</li>
+                    </ul>
+                    
+                    <div class="modal-footer">
+                        <p><strong>Cost: $500 per year</strong></p>
+                        <button class="btn btn-primary select-membership" data-level="gold">Select Gold Membership</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>chamber of commerce, industry,<br> agriculture and trades</h3>
+                <div class="contact-info">
+                    <p>📍 Av Amilcar Cabral Centre Ville, B.P.92 Brazzaville</p>
+                    <p>✉️ cciam_brazza@yahoo.fr</p>
+                    <p>📞 +242 05 067 9979</p>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="discover.html">Discover</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="join.html">Join</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-media">
+                    <a href="#" class="social-link facebook" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link twitter" aria-label="Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.213c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link linkedin" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link instagram" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987c6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.24 14.865 3.75 13.714 3.75 12.417s.49-2.448 1.376-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.886.875 1.376 2.026 1.376 3.323s-.49 2.448-1.376 3.323c-.875.807-2.026 1.297-3.323 1.297z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="project-info">
+                <p>WDD231 Class Project | Confiance Hategekimana Ibovi</p>
+                <p>&copy; <span id="copyright-year"></span> chamber of commerce, industry,<br> agriculture and trades. All rights reserved.</p>
+                <p>Last Modification: <span id="last-modified"></span></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

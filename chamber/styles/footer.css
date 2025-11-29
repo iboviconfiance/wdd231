@@ -41,7 +41,7 @@ footer {
 }
 
 .footer-links a {
-    color: #bdc3c7;
+    color: white;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -100,7 +100,7 @@ footer {
 .project-info p {
     margin-bottom: 0.3rem;
     font-size: 0.9rem;
-    color: #bdc3c7;
+    color: white;
 }
 
 /* Mobile Responsive for Footer */

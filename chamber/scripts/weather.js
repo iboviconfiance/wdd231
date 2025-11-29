@@ -81,7 +81,6 @@ function updateForecast(data) {
     }
 }
 
-// Données par défaut si l'API échoue
 function showDefaultWeather() {
     document.getElementById('current-temp').textContent = '75°F';
     document.getElementById('weather-condition').textContent = 'Partly Cloudy';
@@ -96,10 +95,8 @@ function showDefaultWeather() {
     document.getElementById('forecast-thursday').textContent = '68°F';
 }
 
-// Initialiser la météo au chargement
 document.addEventListener('DOMContentLoaded', function() {
     getWeather();
     
-    // Rafraîchir la météo toutes les 30 minutes
     setInterval(getWeather, 30 * 60 * 1000);
 });

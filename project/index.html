@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Diabo Esport Club - Club esport professionnel basé à Brazzaville, République du Congo. Spécialisé en FIFA, Mortal Kombat, Call of Duty et football réel depuis 2015.">
+    <meta name="author" content="Diabo Esport Club">
+    <meta property="og:title" content="Diabo Esport Club">
+    <meta property="og:description" content="Club esport professionnel à Brazzaville">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:url" content="https://diaboesportclub.com">
+    
+    <title>Diabo Esport Club | Accueil</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+
+    <script type="module" src="scripts/main.js"></script>
+    <script type="module" src="scripts/api.js"></script>
+    <script type="module" src="scripts/modal.js"></script>
+    <script type="module" src="scripts/storage.js"></script>
+    <script type="module" src="scripts/utils.js"></script>
+
+
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="images/logo.png" alt="Diabo Esport Club" class="logo-image">
+                    <div class="logo-text-container">
+                        <div class="logo-main-text">DIABO</div>
+                        <div class="logo-sub-text">ESPORT CLUB</div>
+                    </div>
+                </div>
+                
+                <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <nav class="nav" aria-label="Navigation principale">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link active">Accueil</a></li>
+                        <li class="nav-item"><a href="equipes.html" class="nav-link">Équipes</a></li>
+                        <li class="nav-item"><a href="tournois.html" class="nav-link">Tournois</a></li>
+                        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">POWER. DISCIPLINE. VICTORY.</h1>
+                <p class="hero-subtitle">Club esport professionnel basé à Brazzaville depuis 2015</p>
+                <div class="hero-buttons">
+                    <a href="equipes.html" class="btn btn-primary">Voir nos équipes</a>
+                    <a href="#contact" class="btn btn-secondary">Nous rejoindre</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- À propos -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">À propos du club</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">🏆</div>
+                    <h3>Notre Histoire</h3>
+                    <p>Fondé en 2015 par Ondele Sergi Prince, Diabo Esport Club est devenu une référence dans le monde esport congolais.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🎮</div>
+                    <h3>Nos Jeux</h3>
+                    <p>Spécialisés dans FIFA, Mortal Kombat, Call of Duty, Club Pro et football réel avec Diabo FC.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">📍</div>
+                    <h3>Notre Base</h3>
+                    <p>Basés à Nana Michelle, "La Base" à Brazzaville, nous nous entraînons et compétitionnons au plus haut niveau.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Équipes en avant -->
+    <section class="featured-teams">
+        <div class="container">
+            <h2 class="section-title">Nos Sections</h2>
+            <div class="teams-grid">
+                <div class="team-card" data-game="fifa">
+                    <div class="team-card-header">
+                        <h3>FC (FIFA)</h3>
+                        <span class="team-badge">Esport</span>
+                    </div>
+                    <p>Compétition FIFA au plus haut niveau</p>
+                    <div class="team-stats">
+                        <span>8 joueurs</span>
+                        <span>245 victoires</span>
+                    </div>
+                </div>
+                <div class="team-card" data-game="cod">
+                    <div class="team-card-header">
+                        <h3>Call of Duty</h3>
+                        <span class="team-badge">Esport</span>
+                    </div>
+                    <p>Équipe tactique et stratégique</p>
+                    <div class="team-stats">
+                        <span>6 joueurs</span>
+                        <span>312 victoires</span>
+                    </div>
+                </div>
+                <div class="team-card" data-game="mk">
+                    <div class="team-card-header">
+                        <h3>Mortal Kombat</h3>
+                        <span class="team-badge">Esport</span>
+                    </div>
+                    <p>Combat à la perfection</p>
+                    <div class="team-stats">
+                        <span>5 joueurs</span>
+                        <span>156 victoires</span>
+                    </div>
+                </div>
+                <div class="team-card" data-game="football">
+                    <div class="team-card-header">
+                        <h3>Diabo FC</h3>
+                        <span class="team-badge">Football réel</span>
+                    </div>
+                    <p>Équipe de football sur terrain</p>
+                    <div class="team-stats">
+                        <span>7 joueurs</span>
+                        <span>67 victoires</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Joueurs vedettes -->
+    <section class="featured-players">
+        <div class="container">
+            <h2 class="section-title">Joueurs en vedette</h2>
+            <div class="players-grid" id="featuredPlayers">
+                <!-- Généré dynamiquement par JavaScript -->
+                <div class="loading">Chargement des joueurs...</div>
+            </div>
+            <div class="center">
+                <a href="equipes.html" class="btn btn-outline">Voir tous les joueurs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-nous</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Informations du club</h3>
+                    <div class="contact-item">
+                        <strong>📧 Email :</strong>
+                        <a href="mailto:diaboesportclub@gmail.com">diaboesportclub@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>📍 Adresse :</strong>
+                        <p>Nana Michelle, "La Base"<br>Brazzaville, République du Congo</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>👑 Président :</strong>
+                        <p>Ondele Sergi Prince</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>📢 Communication :</strong>
+                        <p>Lemir</p>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm" action="contact-action.html" method="get">
+                    <div class="form-group">
+                        <label for="name">Nom complet *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <select id="subject" name="subject">
+                            <option value="recrutement">Recrutement</option>
+                            <option value="partenariat">Partenariat</option>
+                            <option value="general">Question générale</option>
+                            <option value="tournoi">Information tournoi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>DIABO ESPORT CLUB</h3>
+                    <p>Discipline – Respect – Ambition – Loyauté – Authenticité – Esprit de famille</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="equipes.html">Équipes</a></li>
+                        <li><a href="tournois.html">Tournois</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Réseaux sociaux</h4>
+                    <div class="social-links">
+                        <a href="https://instagram.com/diaboesport" aria-label="Instagram">📷 Instagram</a>
+                        <a href="https://tiktok.com/@diaboesport" aria-label="TikTok">🎵 TikTok</a>
+                        <a href="https://youtube.com/diaboesport" aria-label="YouTube">🎥 YouTube</a>
+                        <a href="#" aria-label="Facebook">📘 Facebook</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>diaboesportclub@gmail.com</p>
+                    <p>Brazzaville, Congo</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Diabo Esport Club. Tous droits réservés.</p>
+                <p><a href="attributions.html">Attributions des ressources</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Changer le thème">
+        🌙
+    </button>
+
+    <!-- Modal Container -->
+    <div id="modalContainer"></div>
+</body>
+</html>

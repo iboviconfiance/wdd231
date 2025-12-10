@@ -1,0 +1,259 @@
+/* Components réutilisables */
+
+/* Card Components */
+.card {
+    background-color: var(--gray-dark);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid var(--gray-medium);
+    transition: var(--transition);
+}
+
+.light-theme .card {
+    background-color: var(--gray-dark);
+}
+
+.card:hover {
+    border-color: var(--electric-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* Badge Components */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-primary {
+    background-color: var(--electric-blue);
+    color: var(--accent-white);
+}
+
+.badge-secondary {
+    background-color: var(--gray-medium);
+    color: var(--accent-white);
+}
+
+.badge-success {
+    background-color: var(--success);
+    color: var(--accent-white);
+}
+
+.badge-warning {
+    background-color: var(--warning);
+    color: var(--accent-black);
+}
+
+.badge-danger {
+    background-color: var(--danger);
+    color: var(--accent-white);
+}
+
+/* Alert Components */
+.alert {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border-left: 4px solid transparent;
+}
+
+.alert-info {
+    background-color: rgba(41, 121, 255, 0.1);
+    border-color: var(--electric-blue);
+    color: var(--light-blue);
+}
+
+.alert-success {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-color: var(--success);
+    color: #4caf50;
+}
+
+.alert-warning {
+    background-color: rgba(255, 152, 0, 0.1);
+    border-color: var(--warning);
+    color: #ff9800;
+}
+
+.alert-error {
+    background-color: rgba(244, 67, 54, 0.1);
+    border-color: var(--danger);
+    color: #f44336;
+}
+
+/* Loading Spinner */
+.spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(41, 121, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--electric-blue);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    width: 100%;
+}
+
+/* Game-specific colors */
+.color-fifa { color: #00ff88; }
+.color-cod { color: #ff4444; }
+.color-mk { color: #ffaa00; }
+.color-clubpro { color: #9c27b0; }
+.color-diabofc { color: #2979ff; }
+
+.bg-fifa { background-color: rgba(0, 255, 136, 0.1); }
+.bg-cod { background-color: rgba(255, 68, 68, 0.1); }
+.bg-mk { background-color: rgba(255, 170, 0, 0.1); }
+.bg-clubpro { background-color: rgba(156, 39, 176, 0.1); }
+.bg-diabofc { background-color: rgba(41, 121, 255, 0.1); }
+
+/* Utility Components */
+.separator {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gray-medium), transparent);
+    margin: 2rem 0;
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: var(--gray-medium);
+    margin: 2rem 0;
+}
+
+/* Grid Utilities */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+
+@media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Flex Utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.gap-3 { gap: 1.5rem; }
+.gap-4 { gap: 2rem; }
+
+/* Text Utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-sm { font-size: 0.875rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+
+/* Margin & Padding Utilities */
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+/* Display Utilities */
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.hidden { display: none; }
+.visible { display: block; }
+
+/* Animation Utilities */
+.fade-in {
+    animation: fadeIn 0.3s ease;
+}
+
+.slide-up {
+    animation: slideUp 0.3s ease;
+}
+
+.slide-down {
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from { 
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Accessibility Utilities */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.focus-visible:focus-visible {
+    outline: 2px solid var(--electric-blue);
+    outline-offset: 2px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray-medium);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--electric-blue);
+}
+
+/* Selection Styling */
+::selection {
+    background-color: var(--electric-blue);
+    color: var(--accent-white);
+}

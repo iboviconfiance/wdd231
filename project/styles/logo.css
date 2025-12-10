@@ -1,0 +1,147 @@
+/* Logo Styles */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-image {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(41, 121, 255, 0.5));
+}
+
+.logo-text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-main-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--electric-blue);
+    letter-spacing: 1px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.logo-sub-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--light-blue);
+    letter-spacing: 2px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+/* Pour les petits écrans */
+@media (max-width: 768px) {
+    .logo-image {
+        height: 50px;
+    }
+    
+    .logo-main-text {
+        font-size: 1.4rem;
+    }
+    
+    .logo-sub-text {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* Effets d'animation sur le logo */
+@keyframes logoGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 10px rgba(41, 121, 255, 0.5));
+    }
+    50% {
+        filter: drop-shadow(0 0 15px rgba(79, 195, 247, 0.8));
+    }
+}
+
+.logo-image:hover {
+    animation: logoGlow 2s infinite;
+}
+
+/* Badge Multijeu */
+.multigame-badge {
+    background: linear-gradient(135deg, #ff6b6b, #ffa726);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-left: 0.5rem;
+}
+
+.multigame-badge::before {
+    content: "🎮";
+    font-size: 0.8rem;
+}
+
+/* Tags de jeux */
+.game-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.game-tag {
+    background-color: rgba(41, 121, 255, 0.1);
+    color: var(--light-blue);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    border: 1px solid rgba(41, 121, 255, 0.3);
+    transition: var(--transition);
+}
+
+.game-tag:hover {
+    background-color: rgba(41, 121, 255, 0.2);
+    border-color: var(--electric-blue);
+}
+
+/* Spécial pour les joueurs multijeu */
+.multigame-player .player-card {
+    border: 2px solid transparent;
+    background: linear-gradient(var(--gray-dark), var(--gray-dark)) padding-box,
+                linear-gradient(45deg, var(--electric-blue), var(--light-blue)) border-box;
+}
+
+.multigame-player .player-header {
+    position: relative;
+}
+
+.multigame-player .player-name::after {
+    content: "🎮";
+    margin-left: 0.5rem;
+    opacity: 0.8;
+}
+
+/* Style spécifique pour chaque jeu */
+.game-tag[data-game="FC (FIFA)"] {
+    border-left: 3px solid #00ff88;
+}
+
+.game-tag[data-game="Call of Duty"] {
+    border-left: 3px solid #ff4444;
+}
+
+.game-tag[data-game="Mortal Kombat"] {
+    border-left: 3px solid #ffaa00;
+}
+
+.game-tag[data-game="Club Pro"] {
+    border-left: 3px solid #9c27b0;
+}
+
+.game-tag[data-game="Diabo FC"] {
+    border-left: 3px solid #2979ff;
+}

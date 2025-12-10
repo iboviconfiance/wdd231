@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez toutes les équipes et joueurs du Diabo Esport Club. FIFA, Call of Duty, Mortal Kombat, Club Pro et Diabo FC.">
+    <meta name="author" content="Diabo Esport Club">
+    <meta property="og:title" content="Équipes | Diabo Esport Club">
+    <meta property="og:description" content="Découvrez nos joueurs et équipes">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:url" content="https://diaboesportclub.com/equipes.html">
+    
+    <title>Équipes | Diabo Esport Club</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+
+    <script type="module" src="scripts/teams.js"></script>
+    
+    <style>
+        /* Styles spécifiques à la page équipes */
+        .teams-page .page-hero {
+            background: linear-gradient(rgba(10, 14, 23, 0.9), rgba(10, 14, 23, 0.7));
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            background-color: var(--gray-dark);
+            border: 1px solid var(--gray-medium);
+            color: var(--accent-white);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--electric-blue);
+            border-color: var(--electric-blue);
+        }
+        
+        .filter-btn:hover:not(.active) {
+            border-color: var(--light-blue);
+        }
+        
+        .filter-count {
+            background-color: var(--gray-medium);
+            padding: 0.1rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+        
+        .sort-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .sort-select {
+            padding: 0.5rem;
+            background-color: var(--gray-dark);
+            border: 1px solid var(--gray-medium);
+            color: var(--accent-white);
+            border-radius: 4px;
+            min-width: 200px;
+            font-family: var(--font-body);
+        }
+        
+        .search-box input {
+            padding: 0.5rem 1rem;
+            background-color: var(--gray-dark);
+            border: 1px solid var(--gray-medium);
+            color: var(--accent-white);
+            border-radius: 4px;
+            min-width: 250px;
+            font-family: var(--font-body);
+        }
+        
+        .players-stats {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--gray-medium);
+        }
+        
+        .stats-card {
+            background-color: var(--gray-dark);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--gray-medium);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .stat-item-large {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--gray-medium);
+            border-radius: 4px;
+        }
+        
+        .stat-value-large {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--electric-blue);
+        }
+        
+        .stat-label-large {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .game-stats-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .game-stat-item {
+            padding: 1rem;
+            background-color: var(--gray-medium);
+            border-radius: 4px;
+            border-left: 4px solid var(--electric-blue);
+        }
+        
+        .game-stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .game-stat-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .sort-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .sort-select, .search-box input {
+                width: 100%;
+                min-width: unset;
+            }
+            
+            .filter-controls {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+            
+            .filter-btn {
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="images/logo.png" alt="Diabo Esport Club" class="logo-image">
+                    <div class="logo-text-container">
+                        <div class="logo-main-text">DIABO</div>
+                        <div class="logo-sub-text">ESPORT CLUB</div>
+                    </div>
+                </div>
+                
+                <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <nav class="nav" aria-label="Navigation principale">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+                        <li class="nav-item"><a href="equipes.html" class="nav-link active">Équipes</a></li>
+                        <li class="nav-item"><a href="tournois.html" class="nav-link">Tournois</a></li>
+                        <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="teams-page">
+        <!-- Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Nos Équipes</h1>
+                <p>Découvrez les joueurs talentueux qui représentent Diabo Esport Club</p>
+            </div>
+        </section>
+
+        <!-- Filtres et tri -->
+        <section class="teams-filter">
+            <div class="container">
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">Tous les joueurs</button>
+                    <button class="filter-btn" data-filter="FC (FIFA)">FC (FIFA)</button>
+                    <button class="filter-btn" data-filter="Call of Duty">Call of Duty</button>
+                    <button class="filter-btn" data-filter="Mortal Kombat">Mortal Kombat</button>
+                    <button class="filter-btn" data-filter="Club Pro">Club Pro</button>
+                    <button class="filter-btn" data-filter="Diabo FC">Diabo FC</button>
+                </div>
+                
+                <div class="sort-controls">
+                    <select id="sortSelect" class="sort-select">
+                        <option value="wins">Trier par victoires</option>
+                        <option value="winRate">Trier par taux de victoire</option>
+                        <option value="joinDate">Trier par ancienneté</option>
+                        <option value="name">Trier par nom</option>
+                    </select>
+                    
+                    <div class="search-box">
+                        <input type="text" id="playerSearch" placeholder="Rechercher un joueur...">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tous les joueurs -->
+        <section class="all-players">
+            <div class="container">
+                <div class="players-grid" id="allPlayers">
+                    <!-- Généré dynamiquement par JavaScript -->
+                    <div class="loading">Chargement des joueurs...</div>
+                </div>
+                
+                <div class="players-stats" id="playersStats">
+                    <!-- Généré dynamiquement par JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>DIABO ESPORT CLUB</h3>
+                    <p>Discipline – Respect – Ambition – Loyauté – Authenticité – Esprit de famille</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="equipes.html">Équipes</a></li>
+                        <li><a href="tournois.html">Tournois</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Réseaux sociaux</h4>
+                    <div class="social-links">
+                        <a href="https://instagram.com/diaboesport" aria-label="Instagram">📷 Instagram</a>
+                        <a href="https://tiktok.com/@diaboesport" aria-label="TikTok">🎵 TikTok</a>
+                        <a href="https://youtube.com/diaboesport" aria-label="YouTube">🎥 YouTube</a>
+                        <a href="#" aria-label="Facebook">📘 Facebook</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>diaboesportclub@gmail.com</p>
+                    <p>Brazzaville, Congo</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Diabo Esport Club. Tous droits réservés.</p>
+                <p><a href="attributions.html">Attributions des ressources</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Changer le thème">
+        🌙
+    </button>
+
+    <!-- Modal Container -->
+    <div id="modalContainer"></div>
+</body>
+</html>

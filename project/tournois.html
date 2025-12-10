@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calendrier des tournois et résultats du Diabo Esport Club. Suivez nos performances en compétition.">
+    <meta name="author" content="Diabo Esport Club">
+    <meta property="og:title" content="Tournois | Diabo Esport Club">
+    <meta property="og:description" content="Calendrier et résultats des tournois">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:url" content="https://diaboesportclub.com/tournois.html">
+    
+    <title>Tournois | Diabo Esport Club</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    
+    <style>
+        /* Styles spécifiques à la page tournois */
+        .tournaments-page .page-hero {
+            background: linear-gradient(rgba(10, 14, 23, 0.9), rgba(10, 14, 23, 0.7));
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tournament-card {
+            background-color: var(--gray-dark);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--gray-medium);
+            transition: var(--transition);
+        }
+        
+        .tournament-card:hover {
+            border-color: var(--electric-blue);
+            transform: translateY(-5px);
+        }
+        
+        .tournament-card.upcoming {
+            border-left: 4px solid var(--electric-blue);
+        }
+        
+        .tournament-card.past {
+            border-left: 4px solid var(--gray-light);
+            opacity: 0.8;
+        }
+        
+        .tournament-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .tournament-game {
+            background-color: var(--electric-blue);
+            color: var(--accent-white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .tournament-date {
+            font-size: 0.9rem;
+            color: var(--light-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tournament-location {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        
+        .tournament-result {
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        .result-win {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+        
+        .result-lose {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+        
+        .result-upcoming {
+            background-color: rgba(41, 121, 255, 0.1);
+            color: var(--electric-blue);
+            border: 1px solid var(--electric-blue);
+        }
+        
+        .results-timeline {
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .results-timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--gray-medium);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-date {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background-color: var(--gray-dark);
+            border: 2px solid var(--electric-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--electric-blue);
+        }
+        
+        .timeline-content {
+            background-color: var(--gray-dark);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--gray-medium);
+        }
+        
+        .tournament-prize {
+            color: var(--warning);
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .tournament-participants {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .calendar-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .results-timeline::before {
+                left: 15px;
+            }
+            
+            .timeline-item {
+                padding-left: 50px;
+            }
+            
+            .timeline-date {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="images/logo.png" alt="Diabo Esport Club" class="logo-image">
+                    <div class="logo-text-container">
+                        <div class="logo-main-text">DIABO</div>
+                        <div class="logo-sub-text">ESPORT CLUB</div>
+                    </div>
+                </div>
+                
+                <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <nav class="nav" aria-label="Navigation principale">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+                        <li class="nav-item"><a href="equipes.html" class="nav-link">Équipes</a></li>
+                        <li class="nav-item"><a href="tournois.html" class="nav-link active">Tournois</a></li>
+                        <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="tournaments-page">
+        <!-- Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Tournois & Résultats</h1>
+                <p>Suivez nos performances en compétition</p>
+            </div>
+        </section>
+
+        <!-- Prochains tournois -->
+        <section class="tournaments-calendar">
+            <div class="container">
+                <h2 class="section-title">Calendrier des prochains tournois</h2>
+                <div class="calendar-grid" id="upcomingTournaments">
+                    <!-- Généré dynamiquement par JavaScript -->
+                    <div class="loading">Chargement des tournois...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Résultats passés -->
+        <section class="past-results">
+            <div class="container">
+                <h2 class="section-title">Résultats passés</h2>
+                <div class="results-timeline" id="pastResults">
+                    <!-- Généré dynamiquement par JavaScript -->
+                    <div class="loading">Chargement des résultats...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>DIABO ESPORT CLUB</h3>
+                    <p>Discipline – Respect – Ambition – Loyauté – Authenticité – Esprit de famille</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="equipes.html">Équipes</a></li>
+                        <li><a href="tournois.html">Tournois</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Réseaux sociaux</h4>
+                    <div class="social-links">
+                        <a href="https://instagram.com/diaboesport" aria-label="Instagram">📷 Instagram</a>
+                        <a href="https://tiktok.com/@diaboesport" aria-label="TikTok">🎵 TikTok</a>
+                        <a href="https://youtube.com/diaboesport" aria-label="YouTube">🎥 YouTube</a>
+                        <a href="#" aria-label="Facebook">📘 Facebook</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>diaboesportclub@gmail.com</p>
+                    <p>Brazzaville, Congo</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Diabo Esport Club. Tous droits réservés.</p>
+                <p><a href="attributions.html">Attributions des ressources</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Changer le thème">
+        🌙
+    </button>
+
+    <!-- Modal Container -->
+    <div id="modalContainer"></div>
+
+    <!-- JavaScript -->
+    <script type="module">
+        import { saveUserPreference, getUserPreference } from './js/modules/storage.js';
+        
+        // Données des tournois
+        const tournamentsData = {
+            upcoming: [
+                {
+                    id: 1,
+                    name: "Championnat National FIFA 2024",
+                    game: "FC (FIFA)",
+                    date: "15 Mars 2024",
+                    location: "Brazzaville Arena",
+                    prize: "$5,000",
+                    participants: 32,
+                    description: "Tournoi national officiel FIFA 2024"
+                },
+                {
+                    id: 2,
+                    name: "Tournoi COD Brazzaville Open",
+                    game: "Call of Duty",
+                    date: "28 Avril 2024",
+                    location: "Nana Michelle",
+                    prize: "$3,000",
+                    participants: 24,
+                    description: "Tournoi open Call of Duty"
+                },
+                {
+                    id: 3,
+                    name: "Mortal Kombat Championship",
+                    game: "Mortal Kombat",
+                    date: "12 Mai 2024",
+                    location: "Esport Center Congo",
+                    prize: "$2,500",
+                    participants: 16,
+                    description: "Championnat Mortal Kombat"
+                },
+                {
+                    id: 4,
+                    name: "Coupe Diabo FC 2024",
+                    game: "Diabo FC",
+                    date: "25 Mai 2024",
+                    location: "Stade Municipal",
+                    prize: "Trophée + $1,500",
+                    participants: 8,
+                    description: "Tournoi amical Diabo FC"
+                }
+            ],
+            past: [
+                {
+                    id: 5,
+                    name: "Brazzaville Esport Cup 2023",
+                    game: "FC (FIFA)",
+                    date: "10 Décembre 2023",
+                    result: "1ère Place",
+                    prize: "$4,000",
+                    participants: 28,
+                    description: "Victoire finale 3-1 contre Pro Gaming Club"
+                },
+                {
+                    id: 6,
+                    name: "COD Warzone Tournament",
+                    game: "Call of Duty",
+                    date: "15 Novembre 2023",
+                    result: "2ème Place",
+                    prize: "$1,500",
+                    participants: 20,
+                    description: "Finale serrée perdue 2-3"
+                },
+                {
+                    id: 7,
+                    name: "Mortal Kombat Showdown",
+                    game: "Mortal Kombat",
+                    date: "5 Octobre 2023",
+                    result: "1ère Place",
+                    prize: "$2,000",
+                    participants: 12,
+                    description: "Victoire par KO technique"
+                },
+                {
+                    id: 8,
+                    name: "Tournoi Club Pro Elite",
+                    game: "Club Pro",
+                    date: "20 Septembre 2023",
+                    result: "1ère Place",
+                    prize: "$3,500",
+                    participants: 16,
+                    description: "Promotion en division Elite"
+                },
+                {
+                    id: 9,
+                    name: "Championnat National 2023",
+                    game: "Diabo FC",
+                    date: "5 Août 2023",
+                    result: "3ème Place",
+                    prize: "$800",
+                    participants: 12,
+                    description: "Performance honorable"
+                },
+                {
+                    id: 10,
+                    name: "FIFA Summer Cup",
+                    game: "FC (FIFA)",
+                    date: "15 Juillet 2023",
+                    result: "1ère Place",
+                    prize: "$2,500",
+                    participants: 24,
+                    description: "Dominance totale 5 victoires/0 défaites"
+                }
+            ]
+        };
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setup navigation
+            setupNavigation();
+            
+            // Setup theme
+            setupTheme();
+            
+            // Load tournaments
+            loadTournaments();
+        });
+
+        // Setup navigation
+        function setupNavigation() {
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('.nav');
+            
+            if (hamburger && nav) {
+                hamburger.addEventListener('click', function() {
+                    const isActive = hamburger.classList.contains('active');
+                    
+                    hamburger.classList.toggle('active');
+                    nav.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', (!isActive).toString());
+                    
+                    if (!isActive) {
+                        document.body.classList.add('menu-open');
+                    } else {
+                        document.body.classList.remove('menu-open');
+                    }
+                });
+            }
+        }
+
+        // Setup theme
+        function setupTheme() {
+            const themeToggle = document.getElementById('themeToggle');
+            const savedTheme = getUserPreference('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Use saved theme or system preference
+            const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+                if (themeToggle) themeToggle.innerHTML = '☀️';
+            }
+            
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    const isDark = !document.body.classList.contains('light-theme');
+                    
+                    if (isDark) {
+                        // Switch to light theme
+                        document.body.classList.add('light-theme');
+                        themeToggle.innerHTML = '☀️';
+                        saveUserPreference('theme', 'light');
+                    } else {
+                        // Switch to dark theme
+                        document.body.classList.remove('light-theme');
+                        themeToggle.innerHTML = '🌙';
+                        saveUserPreference('theme', 'dark');
+                    }
+                });
+            }
+        }
+
+        // Load tournaments
+        function loadTournaments() {
+            // Load upcoming tournaments
+            const upcomingContainer = document.getElementById('upcomingTournaments');
+            if (upcomingContainer) {
+                upcomingContainer.innerHTML = '';
+                
+                tournamentsData.upcoming.forEach(tournament => {
+                    const tournamentCard = createTournamentCard(tournament, 'upcoming');
+                    upcomingContainer.appendChild(tournamentCard);
+                });
+            }
+            
+            // Load past results
+            const pastContainer = document.getElementById('pastResults');
+            if (pastContainer) {
+                pastContainer.innerHTML = '';
+                
+                tournamentsData.past.forEach((tournament, index) => {
+                    const timelineItem = createTimelineItem(tournament, index);
+                    pastContainer.appendChild(timelineItem);
+                });
+            }
+        }
+
+        // Create tournament card
+        function createTournamentCard(tournament, type) {
+            const card = document.createElement('div');
+            card.className = `tournament-card ${type}`;
+            
+            card.innerHTML = `
+                <div class="tournament-header">
+                    <h3>${tournament.name}</h3>
+                    <span class="tournament-game">${tournament.game}</span>
+                </div>
+                <p class="tournament-date">📅 ${tournament.date}</p>
+                <p class="tournament-location">📍 ${tournament.location}</p>
+                <p>${tournament.description}</p>
+                <p class="tournament-prize">💰 Prix: ${tournament.prize}</p>
+                <p class="tournament-participants">👥 ${tournament.participants} participants</p>
+                <div class="tournament-result ${type === 'upcoming' ? 'result-upcoming' : tournament.result.includes('1ère') ? 'result-win' : 'result-lose'}">
+                    ${type === 'upcoming' ? 'À venir' : tournament.result}
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Create timeline item
+        function createTimelineItem(tournament, index) {
+            const item = document.createElement('div');
+            item.className = 'timeline-item';
+            
+            const monthNames = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'];
+            const dateParts = tournament.date.split(' ');
+            const monthIndex = monthNames.findIndex(m => m.toLowerCase().includes(dateParts[1].toLowerCase().substring(0,3)));
+            const day = dateParts[0];
+            
+            item.innerHTML = `
+                <div class="timeline-date">${day}</div>
+                <div class="timeline-content">
+                    <div class="tournament-header">
+                        <h3>${tournament.name}</h3>
+                        <span class="tournament-game">${tournament.game}</span>
+                    </div>
+                    <p class="tournament-date">📅 ${tournament.date}</p>
+                    <p>${tournament.description}</p>
+                    <p class="tournament-prize">💰 Prix: ${tournament.prize}</p>
+                    <p class="tournament-participants">👥 ${tournament.participants} participants</p>
+                    <div class="tournament-result ${tournament.result.includes('1ère') ? 'result-win' : 'result-lose'}">
+                        ${tournament.result}
+                    </div>
+                </div>
+            `;
+            
+            return item;
+        }
+    </script>
+</body>
+</html>
